@@ -7,6 +7,14 @@ The PG Document Hub is a web application designed to streamline the management, 
 This application is intended for deployment on a local department computer, accessible via the local Wi-Fi network only, ensuring data privacy and control.
 
 ---
+<img src="https://github.com/user-attachments/assets/bf313ff7-40e2-4af4-a039-a0c242bd6fd1" width="200" />
+<img src="https://github.com/user-attachments/assets/e0534f5c-fd1b-4f65-9557-e656e8de671a" width="200" />
+<img src="https://github.com/user-attachments/assets/f24d48cf-7d26-4992-b4ab-6355ea393712" width="200" />
+<img src="https://github.com/user-attachments/assets/c30edbf9-10a7-4bdf-a74d-30dee324ce53" width="200" />
+<img src="https://github.com/user-attachments/assets/166cc0a5-fc5e-4131-850b-a5d95989ecec" width="800" />
+
+---
+
 
 ## Features
 
