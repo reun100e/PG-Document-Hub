@@ -204,6 +204,7 @@ const ScheduleForm: React.FC<ScheduleFormProps> = ({
       <Input
         label="Title / Topic"
         id="schedule-title"
+        type="text"
         {...register("title", { required: "Title is required" })}
         error={errors.title?.message}
         disabled={isSubmitting}

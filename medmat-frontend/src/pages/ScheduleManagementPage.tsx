@@ -297,7 +297,7 @@ const ScheduleManagementPage: React.FC = () => {
   }
 
   return (
-    <div className="space-y-6 lg:space-y-8">
+    <div>
       <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-light-border dark:border-dark-border">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-light-text dark:text-dark-text flex items-center">
