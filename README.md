@@ -74,10 +74,6 @@ Before you begin, ensure you have the following installed on the machine where y
     ```
 
 2.  **Backend Setup (Django):**
-    *   Navigate to the backend project directory (e.g., `medmat_project`):
-        ```bash
-        cd medmat_project
-        ```
     *   Create and activate a Python virtual environment:
         ```bash
         python -m venv venv .
@@ -109,7 +105,7 @@ Before you begin, ensure you have the following installed on the machine where y
 3.  **Frontend Setup (React):**
     *   Navigate to the frontend project directory (e.g., `medmat-frontend`):
         ```bash
-        cd ../medmat-frontend 
+        cd medmat-frontend 
         ```
     *   Install Node.js dependencies:
         ```bash
@@ -125,6 +121,9 @@ You'll typically run the backend and frontend servers separately in development.
 1.  **Start the Django Backend Development Server:**
     *   Ensure your Python virtual environment is activated.
     *   Navigate to the Django project directory (`medmat_project`).
+        ```bash
+        cd medmat_project
+        ```
     *   In `settings.py`, ensure `DEBUG = True`.
     *   Run:
         ```bash
