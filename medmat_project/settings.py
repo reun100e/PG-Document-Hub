@@ -11,12 +11,56 @@ SECRET_KEY = "dg456&sadjaafsgoasd14sfsd7v0s7dvsdv0786vsd5vs6vsc"  # Replace with
 DEBUG = False  # Set to False in production
 
 ALLOWED_HOSTS = [
-    "*",
     "localhost",
     "127.0.0.1",
-    "192.168.1.17",  # e.g., '192.168.1.105' TODO:
+    "192.168.1.17",  # TODO:
+    "192.168.1.15",
     "dev.onthewifi.com",
+    "lib.onthewifi.com",
 ]
+
+# CORS settings
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Vite default dev server
+    "http://127.0.0.1:5173",
+    "https://dev.onthewifi.com",
+    "https://lib.onthewifi.com",
+    # Add your production frontend URL here
+]
+# If you need to send cookies/auth headers from a different domain (not typical for token auth)
+# CORS_ALLOW_CREDENTIALS = True
+# For more specific origins in production, list them.
+# In development, you might temporarily use:
+# CORS_ALLOW_ALL_ORIGINS = True (Not for production)
+
+
+# If Caddy is handling HTTPS and forwarding requests to Django as HTTP:
+# This tells Django to trust the X-Forwarded-Proto header from Caddy.
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+# Optional, but good for ensuring cookies are secure if served over HTTPS:
+# SESSION_COOKIE_SECURE = True # Only if all access is HTTPS
+# CSRF_COOKIE_SECURE = True    # Only if all access is HTTPS
+
+# CSRF Protection: Add your domain with the scheme (https)
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8000",  # For local testing if direct
+    "http://127.0.0.1:8000",  # For local testing if direct
+    "http://YOUR_WINDOWS_MACHINE_LOCAL_IP:8000",  # For local IP access if direct
+    "https://dev.onthewifi.com",  # Your domain with HTTPS
+    "http://dev.onthewifi.com",  # If Caddy also serves HTTP temporarily or for redirects
+    "https://lib.onthewifi.com",  # Your domain with HTTPS
+    "http://lib.onthewifi.com",  # If Caddy also serves HTTP temporarily or for redirects
+]
+
+# It's good practice to also ensure your SESSION_COOKIE_SAMESITE and CSRF_COOKIE_SAMESITE
+# are reasonably set, though 'Lax' is often the default and usually fine.
+SESSION_COOKIE_SAMESITE = "Lax"
+CSRF_COOKIE_SAMESITE = "Lax"
+SESSION_COOKIE_SECURE = (
+    True  # If your tunnel (lib.onthewifi.com) serves your app over HTTPS
+)
+CSRF_COOKIE_SECURE = True  # If your tunnel serves your app over HTTPS
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -168,36 +212,6 @@ REST_FRAMEWORK = {
     #     'user': '1000/day'
     # }
 }
-
-# CORS settings
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Vite default dev server
-    "http://127.0.0.1:5173",
-    "https://dev.onthewifi.com",
-    # Add your production frontend URL here
-]
-# If you need to send cookies/auth headers from a different domain (not typical for token auth)
-# CORS_ALLOW_CREDENTIALS = True
-# For more specific origins in production, list them.
-# In development, you might temporarily use:
-# CORS_ALLOW_ALL_ORIGINS = True (Not for production)
-
-
-# If Caddy is handling HTTPS and forwarding requests to Django as HTTP:
-# This tells Django to trust the X-Forwarded-Proto header from Caddy.
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-# Optional, but good for ensuring cookies are secure if served over HTTPS:
-# SESSION_COOKIE_SECURE = True # Only if all access is HTTPS
-# CSRF_COOKIE_SECURE = True    # Only if all access is HTTPS
-
-# CSRF Protection: Add your domain with the scheme (https)
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8000",  # For local testing if direct
-    "http://127.0.0.1:8000",  # For local testing if direct
-    "http://YOUR_WINDOWS_MACHINE_LOCAL_IP:8000",  # For local IP access if direct
-    "https://dev.onthewifi.com",  # Your domain with HTTPS
-    "http://dev.onthewifi.com",  # If Caddy also serves HTTP temporarily or for redirects
-]
 
 # settings.py
 FILE_UPLOAD_MAX_MEMORY_SIZE = 262144000  # 250 MB in bytes (250 * 1024 * 1024)

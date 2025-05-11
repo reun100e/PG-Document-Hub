@@ -66,6 +66,17 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'], // Files to precache
+
+
+        navigateFallback: '/static/index.html', // Assuming your index.html is served via /static/ by Django
+        navigateFallbackDenylist: [
+          /^\/admin/,      // Exclude Django admin paths
+          /^\/api/,        // Exclude API paths
+          /^\/media/,      // Exclude media file paths
+          // Add any other backend-specific paths
+          new RegExp('/[^/?]+\\.[^/?]+$'), // Common regex to exclude direct file requests
+        ],
+
         // runtimeCaching: [ // Example API caching (adjust urlPattern)
         //   {
         //     urlPattern: ({ url }) => url.pathname.startsWith('/api'), // Cache API calls
