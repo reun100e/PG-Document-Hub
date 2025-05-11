@@ -80,7 +80,7 @@ Before you begin, ensure you have the following installed on the machine where y
         ```
     *   Create and activate a Python virtual environment:
         ```bash
-        python -m venv venv
+        python -m venv venv .
         # On Windows:
         .\venv\Scripts\activate
         # On macOS/Linux:
