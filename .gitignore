@@ -3,7 +3,7 @@
 *.pot
 *.pyc
 __pycache__
-*.sqlite3
+db.sqlite3
 media
 
 # Distribution / packaging 
@@ -60,6 +60,6 @@ venv.bak/
 .history
 
 # Static files #
-staticfiles_build/static/assets/*
+staticfiles_build/
 staticfiles/
-media_files/*
+media_files/
